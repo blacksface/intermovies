@@ -21,7 +21,7 @@
       display: flex;
       flex-direction: column;
       padding-top: 80px;
-      padding-bottom: 40px;
+ 
     }
 
     /* Navbar */
@@ -202,6 +202,25 @@
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
+      /* Footer */
+  footer {
+    background-color: hsl(240, 100%, 50%);; /* Azul suave */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  footer a {
+    color: #00bcd4;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
 
     .know-team-btn:hover {
       background-color: #0097a7;
@@ -305,11 +324,21 @@
     </div>
   </div>
 
+   <!-- Footer -->
+   <footer>
+    <p>&copy; 2024 Inter Movies - Todos os direitos reservados</p>
+    <p>
+      Desenvolvido por <a href="./informações.html">Emanuel, Luiz, Enzo</a>.
+      Para mais informações, visite nossa <a href="informações.html">página de contato</a>.
+    </p>
+  </footer>
+
   <script>
     function toggleAnswer(element) {
       element.classList.toggle('open');
     }
   </script>
 </body>
+
 
 </html>
