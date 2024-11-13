@@ -1,0 +1,226 @@
+    /* Reset básico */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #0c1011; /* Fundo escuro */
+        color: #ffffff; /* Texto branco */
+        padding-top: 90px; /* Espaçamento para a navbar fixa */
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+  
+      
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding-inline: 12px;
+        background-color: hsl(240, 100%, 50%); /* Azul suave */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;          
+      }
+
+      .navbar img {
+        width: 130px; /* Tamanho ajustado da logo */
+        height: auto;
+      }
+
+      
+  
+      .navbar a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 16px;
+      }
+  
+      .navbar a:hover {
+        text-decoration: underline;
+      }
+  
+      .movie-row {
+        margin-block: 5rem;
+        padding: 20px;
+        flex-grow: 1; /* Permite que a seção de filmes cresça, empurrando o footer para baixo */
+        display: none; /* Inicialmente, oculto até o login */
+      }
+  
+      .movie-row h2 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 50px;
+        color: #ffffff;
+      }
+  
+      .movies {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding-bottom: 20px;
+      }
+  
+      .movie {
+        position: relative;
+        border-radius: 5px;
+        background-color: #000000;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+  
+      .movie img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 5px;
+      }
+  
+      .movie p {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.6);
+        font-size: 1.2rem;
+        color: white;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+  
+      .movie:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        border: 2px solid #0096ff;
+      }
+  
+      .movie:hover p {
+        background-color: rgba(0, 150, 255, 0.7);
+        color: #ffffff;
+      }
+  
+      footer {
+        background-color: hsl(240, 100%, 50%); /* Azul escuro */
+        padding: 20px;
+        text-align: center;
+        color: #ffffff; /* Cinza claro */
+        font-size: 14px;
+      }
+  
+      footer a {
+        color: hsl(218, 84%, 41%);
+        text-decoration: none;
+      }
+  
+      footer a:hover {
+        text-decoration: underline;
+      }
+  
+      /* Responsividade */
+      @media screen and (max-width: 768px) {
+        .movie-row h2 {
+          font-size: 2rem;
+        }
+  
+        .movie {
+          width: 150px;
+        }
+      }
+    /* Responsividade */
+    @media screen and (max-width: 468px) {
+      .navbar .links {
+          padding: 0;
+          & a {
+              margin-inline: 4px;
+              font-size: 0.82rem;
+          }
+      } 
+      .navbar img {       
+        width: 80px; /* Logo menor para dispositivos móveis */
+      }
+  
+      .welcome h2 {
+        font-size: 2rem;
+        margin-top: 6px;
+      }
+  
+      .welcome p {
+          font-size: 0.9rem;
+          padding-inline: 1rem;
+          
+  }
+      .banner h1 {
+        font-size: 2.6rem;
+      }
+  
+      .banner p {
+        font-size: 1rem;
+      }
+  
+      .banner .buttons a {
+        padding: 10px 20px; /* Botões menores em dispositivos móveis */
+      }
+
+    }
+      /* Estilos para o pop-up de login */
+      .login-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        backdrop-filter: blur(5px); /* Desfoca o fundo */
+      }
+  
+      .login-modal-content {
+        background-color:hsl(240, 100%, 50%);;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+        color: white;
+        width: 300px;
+      }
+  
+      .login-modal-content h2 {
+        margin-bottom: 20px;
+      }
+  
+      .login-modal-content input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #1e1e1e;
+        color: white;
+        font-size: 1rem;
+      }
+  
+      .login-modal-content button {
+        padding: 10px 20px;
+        background-color: #000000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+  
+      .login-modal-content button:hover {
+        background-color: #000000;
+      }

@@ -1,0 +1,167 @@
+   /* Reset básico */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: hsl(240, 90%, 24%);; /* Azul escuro */
+    color: #ffffff; /* Cor do texto branca */
+    padding-top: 80px; /* Para que o conteúdo não fique escondido atrás da navbar fixa */
+    min-height: 100vh; /* Garantir que o body ocupe toda a altura da tela */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Navbar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-inline: 12px;
+    background-color: hsl(240, 100%, 50%); /* Azul suave */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .navbar img {
+    width: 130px; /* Tamanho ajustado da logo */
+    height: auto;
+  }
+
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+  }
+
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+
+  /* Seção de boas-vindas */
+  .welcome {
+    text-align: center;
+    margin-top: 50px;
+    flex-grow: 1; /* Permite que o conteúdo acima ocupe o restante do espaço */
+  }
+
+  .welcome h2 {
+    font-size: 2.5rem;
+    margin-block: 40px;
+  }
+
+  .welcome p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  /* Banner principal */
+  .banner {
+    position: relative;
+    height: 60vh;
+    /*background: url('banner-image.jpg') no-repeat center center; /* Alterar o caminho para a imagem do banner */
+    /*background-size: cover;*/
+    background-color: hsl(0, 10%, 5%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza o conteúdo */
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px; /* Dá um espaçamento para separar o banner da navbar */
+  }
+
+  .banner h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+
+  .banner p {
+    font-size: 1.2rem;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  .banner .buttons {
+    margin-top: 20px;
+  }
+
+  .banner .buttons a {
+    background-color: hsl(240, 100%, 50%); /* Azul suave */
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    margin-right: 15px;
+    font-weight: bold;
+  }
+
+  .banner .buttons a:hover {
+    background-color: #1d0572; /* Azul mais escuro */
+  }
+
+  /* Footer */
+  footer {
+    background-color: hsl(240, 100%, 50%);; /* Azul suave */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  footer a {
+    color: #00bcd4;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsividade */
+  @media screen and (max-width: 468px) {
+    .navbar .links {
+        padding: 0;
+        & a {
+            margin-inline: 4px;
+            font-size: 0.82rem;
+        }
+    } 
+    .navbar img {       
+      width: 80px; /* Logo menor para dispositivos móveis */
+    }
+
+    .welcome h2 {
+      font-size: 2rem;
+      margin-top: 6px;
+    }
+
+    .welcome p {
+        font-size: 0.9rem;
+        padding-inline: 1rem;
+        
+}
+    .banner h1 {
+      font-size: 2.6rem;
+    }
+
+    .banner p {
+      font-size: 1rem;
+    }
+
+    .banner .buttons a {
+      padding: 10px 20px; /* Botões menores em dispositivos móveis */
+    }
+
+  }

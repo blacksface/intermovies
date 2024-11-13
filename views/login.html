@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InterMovies - Login</title>
+  <style>
+    /* Estilo básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0c1011;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      background-color: hsl(0, 0%, 0%);
+      color: white;
+      cursor: pointer;
+      margin: 0 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .tab:hover {
+      background-color: #000000;
+    }
+
+    .tab.active {
+      background-color: #000000;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+      background-color: hsl(240, 100%, 50%);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 4px;
+      color: #fff;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #000000;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .form-container button:hover {
+      background-color: hsl(240, 100%, 50%);
+    }
+
+    .form-container .toggle-form {
+      color: #dddddd;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      color: #cccccc;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #cccccc;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Inter Movies</h2>
+
+  <!-- Abas para alternar entre login e cadastro -->
+  <div class="tabs">
+    <div class="tab active" id="login-tab" onclick="toggleForm('login')">Login</div>
+    <div class="tab" id="signup-tab" onclick="toggleForm('signup')">Cadastrar</div>
+  </div>
+
+  <!-- Formulário de Login -->
+  <div class="form-container" id="login-form-container">
+    <form id="login-form">
+      <input type="email" id="login-email" placeholder="Email" required>
+      <input type="password" id="login-password" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <p class="toggle-form" onclick="toggleForm('signup')">Não tem uma conta? Cadastre-se</p>
+  </div>
+
+  <!-- Formulário de Cadastro -->
+  <div class="form-container" id="signup-form-container" style="display: none;">
+    <form id="signup-form">
+      <input type="text" id="signup-name" placeholder="Nome completo" required>
+      <input type="email" id="signup-email" placeholder="Email" required>
+      <input type="password" id="signup-password" placeholder="Senha" required>
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p class="toggle-form" onclick="toggleForm('login')">Já tem uma conta? Faça login</p>
+  </div>
+
+  <script>
+    // Função para alternar entre os formulários de login e cadastro
+    function toggleForm(formType) {
+      const loginForm = document.getElementById('login-form-container');
+      const signupForm = document.getElementById('signup-form-container');
+      const loginTab = document.getElementById('login-tab');
+      const signupTab = document.getElementById('signup-tab');
+
+      if (formType === 'login') {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+        loginTab.classList.add('active');
+        signupTab.classList.remove('active');
+      } else {
+        signupForm.style.display = 'block';
+        loginForm.style.display = 'none';
+        signupTab.classList.add('active');
+        loginTab.classList.remove('active');
+      }
+    }
+
+    // Função de submit do formulário de login
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      // Aqui você pode adicionar a lógica para validar o login
+      alert('Login feito com sucesso!');
+      
+      // Redireciona para o arquivo jogo3.html
+      window.location.href = "./home.html"; // Redirecionamento local
+
+      document.getElementById('login-form').reset();
+    });
+
+    // Função de submit do formulário de cadastro
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('signup-name').value;
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+
+      // Aqui você pode adicionar a lógica para cadastrar o usuário
+      alert('Cadastro realizado com sucesso!');
+      document.getElementById('signup-form').reset();
+      toggleForm('login'); // Voltar para o formulário de login
+    });
+  </script>
+</body>
+
+</html>

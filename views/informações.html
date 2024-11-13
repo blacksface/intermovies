@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perguntas Frequentes - Inter Movies</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 80px;
+      padding-bottom: 40px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0px;
+      background-color: hsl(240, 100%, 50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .navbar img {
+      width: 100px;
+      height: auto;
+      /* Defina a largura do logo */
+      margin-right: 40%;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Título e Seção FAQ */
+    .faq-section {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .faq-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .faq-section p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+
+    /* Estilo das perguntas */
+    .faq {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background-color: hsl(240, 100%, 50%);
+      margin: 15px 0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .faq-item:hover {
+      background-color: hsl(240, 100%, 50%);
+      transform: translateY(-5px); /* Efeito de elevação */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .faq-item h3 {
+      font-size: 1.7rem;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .faq-item:hover h3 {
+      color: #007bb5;
+    }
+
+    .faq-item p {
+      font-size: 1.1rem;
+      color: #ddd;
+      display: none; /* Respostas inicialmente escondidas */
+      padding-top: 10px;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.4s ease, max-height 0.4s ease;
+    }
+
+    .faq-item.open p {
+      display: block;
+      opacity: 1;
+      max-height: 200px; /* Limita a altura da resposta */
+    }
+
+    /* Sobre os Programadores */
+    .about-programmers {
+      background-color: #1c1f23;
+      padding: 50px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .about-programmers h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .programmers {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .programmer-card {
+      background-color: hsl(240, 100%, 50%);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .programmer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .programmer-card img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .programmer-card h3 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .programmer-card p {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 10px;
+    }
+
+    .programmer-card a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .programmer-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Botão para Conhecer a Equipe */
+    .know-team-btn {
+      margin-top: 30px;
+      padding: 15px 30px;
+      background-color: hsl(240, 100%, 50%);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .know-team-btn:hover {
+      background-color: #0097a7;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="..//assets/logo.png" alt="Logo Interfilmes"> <!-- Logo da interfilmes -->
+    <div>
+      <a href="home.html">Início</a>
+      <a href="series.html">Séries</a>
+      <a href="filmes.html">Filmes</a>
+      <a href="login.html">Login</a>
+      <a href="informações.html">Dúvidas</a> 
+    </div>
+    </div>
+  </div>
+
+  <!-- Seção de Perguntas Frequentes -->
+  <div class="faq-section">
+    <h2>Perguntas Frequentes</h2>
+    <p>Encontre respostas para as perguntas mais comuns sobre nosso site e como aproveitar ao máximo os filmes e séries que oferecemos.</p>
+
+    <div class="faq">
+      <!-- Pergunta 1 -->
+      <div class="faq-item" onclick="toggleAnswer(this)">
+        <h3>1. Como posso assistir aos filmes e séries?</h3>
+        <p>Para assistir aos filmes e séries, basta fazer login em sua conta, navegar até a seção desejada e escolher o conteúdo que deseja assistir. Não há necessidade de pagamento!</p>
+      </div>
+
+      <!-- Pergunta 2 -->
+      <div class="faq-item" onclick="toggleAnswer(this)">
+        <h3>2. Preciso pagar para acessar o conteúdo?</h3>
+        <p>Não! Nosso serviço é completamente gratuito e oferece acesso ao conteúdo com anúncios. No entanto, você pode pagar uma taxa para remover os anúncios e ter uma experiência sem interrupções.</p>
+      </div>
+
+      <!-- Pergunta 3 -->
+      <div class="faq-item" onclick="toggleAnswer(this)">
+        <h3>3. Como posso criar uma conta?</h3>
+        <p>Para criar uma conta, clique em "Login" no menu da página principal e, em seguida, em "Cadastrar". Preencha seus dados e você estará pronto para aproveitar o conteúdo gratuito!</p>
+      </div>
+
+      <!-- Pergunta 4 -->
+      <div class="faq-item" onclick="toggleAnswer(this)">
+        <h3>4. Como posso alterar minha senha?</h3>
+        <p>Para alterar sua senha, faça login em sua conta e acesse as configurações da conta. Você encontrará a opção para redefinir sua senha e garantir mais segurança em sua conta.</p>
+      </div>
+
+      <!-- Pergunta 5 -->
+      <div class="faq-item" onclick="toggleAnswer(this)">
+        <h3>5. O site é seguro?</h3>
+        <p>Sim, nosso site utiliza criptografia e outros métodos de segurança para garantir que suas informações e dados pessoais estejam protegidos. Estamos comprometidos com a sua privacidade e segurança.</p>
+      </div>
+    </div>
+
+    <!-- Botão para Conhecer a Equipe -->
+    <a href="#about-programmers">
+      <button class="know-team-btn">Conheça nossa equipe</button>
+    </a>
+  </div>
+
+  <!-- Sobre os Programadores -->
+  <div class="about-programmers" id="about-programmers">
+    <h2>Sobre os Programadores</h2>
+    <div class="programmers">
+      <!-- Programador 1 -->
+      <div class="programmer-card">
+        <img src="..//assets/emanuel.jpeg" alt="Programador 1">
+        <h3>Emanuel Teixeira</h3>
+        <p>Desenvolvedor Full Stack | Criador do design e integração front-end.</p>
+        <a href="https://www.linkedin.com/in/emanuel" target="_blank">LinkedIn</a>
+      </div>
+  
+      <!-- Programador 2 -->
+      <div class="programmer-card">
+        <img src="..//assets/luiz.jpeg" alt="Programador 2">
+        <h3>Luiz Pinto</h3>
+        <p>Desenvolvedor Back-End | Responsável pela lógica e estrutura do sistema.</p>
+        <a href="https://www.linkedin.com/in/joaosilva" target="_blank">LinkedIn</a>
+      </div>
+  
+      <!-- Programador 3 -->
+      <div class="programmer-card">
+        <img src="..//assets/enzo.jpeg" alt="Programador 3">
+        <h3>Enzo Delas</h3>
+        <p>Designer UX/UI | Criador das interfaces e experiência do usuário.</p>
+        <a href="https://www.linkedin.com/in/enzo" target="_blank">LinkedIn</a>
+      </div>
+  
+      <!-- Programador 4 -->
+      <div class="programmer-card">
+        <img src="..//assets/lukas.jpeg" alt="Programador 4">
+        <h3>Lukas Comunista</h3>
+        <p>Desenvolvedor Front-End | Responsável pela implementação da interface e interatividade do site.</p>
+        <a href="https://www.linkedin.com/in/carlospereira" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleAnswer(element) {
+      element.classList.toggle('open');
+    }
+  </script>
+</body>
+
+</html>

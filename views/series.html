@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InterMovies - Séries</title>
+  <link rel="stylesheet" href="../css/filmes.css">
+
+  <script>
+    // Função para simular o login
+    function login() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Lógica de validação simples
+      if (username && password) {
+        // Salva a informação de login no localStorage
+        localStorage.setItem('isLoggedIn', 'true');
+
+        // Fechar o pop-up de login
+        document.querySelector('.login-modal').style.display = 'none';
+
+        // Exibir a seção de filmes
+        document.querySelector('.movie-row').style.display = 'block';
+      } else {
+        alert("Por favor, insira seu nome de usuário e senha.");
+      }
+    }
+
+    // Função para verificar o login
+    window.onload = function () {
+      var isLoggedIn = localStorage.getItem('isLoggedIn'); // Verifica se existe o item no localStorage
+
+      if (isLoggedIn === 'true') {
+        // Se o usuário já estiver logado, mostra a seção de filmes
+        document.querySelector('.movie-row').style.display = 'block';
+      } else {
+        // Se não estiver logado, exibe o pop-up de login
+        document.querySelector('.login-modal').style.display = 'flex';
+      }
+    };
+  </script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="../assets/logo.png" alt="Logo Inter Movies"> <!-- Logo -->
+    <div class = "links">
+      <a href="home.html" >Início</a>
+      <a href="series.html" >Séries</a>
+      <a href="filmes.html" >Filmes</a>
+      <a href="login.html" >Login</a>
+      <a href="informações.html">Dúvidas</a> 
+    </div>
+    </div>
+
+ <!--  
+  <div class="login-modal">
+    <div class="login-modal-content">
+      <h2>Por favor, faça login para acessar os filmes.</h2>
+      <input type="text" id="username" placeholder="Nome de usuário">
+      <input type="password" id="password" placeholder="Senha">
+      <button onclick="login()">Fazer Login</button>
+    </div>
+  </div> -->
+
+  <!-- Seção de filmes -->
+  <div class="movie-row">
+    <h2>Séries em alta</h2>
+    <div class="movies">
+      <!-- Filmes existentes -->
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=abcd1234" target="_blank">
+          <img src="../assets/Stranger.jpg" alt="Série 1">
+        </a>
+        <p>Stranger Things</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=xyz5678" target="_blank">
+          <img src="../assets/Breaking.jpeg" alt="Série 2">
+        </a>
+        <p>Breaking Bad</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=efg9012" target="_blank">
+          <img src="../assets/The Crown.png" alt="Série 3">
+        </a>
+        <p>The Crown</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=hij3456" target="_blank">
+          <img src="../assets/Game of Thrones.jpeg" alt="Série 4">
+        </a>
+        <p>Game of Thrones</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=klm7890" target="_blank">
+          <img src="../assets/friends.jpg" alt="Série 5">
+        </a>
+        <p>Friends</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=stu5678" target="_blank">
+          <img src="../assets/thewalking.jpg" alt="Série 7">
+        </a>
+        <p>The Walking Dead</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=wxy9012" target="_blank">
+          <img src="../assets/blackmirror.jpg" alt="Série 8">
+        </a>
+        <p>Black Mirror</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=xyz456" target="_blank">
+          <img src="../assets/The Office.jpg" alt="Série 10">
+        </a>
+        <p>The Office</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=def789" target="_blank">
+          <img src="../assets/Peaky Blinders.jpg" alt="Série 11">
+        </a>
+        <p>Peaky Blinders</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=ghi012" target="_blank">
+          <img src="../assets/Mindhunter.jpg" alt="Série 12">
+        </a>
+        <p>Mindhunter</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=jkl345" target="_blank">
+          <img src="../assets/The Witcher.jpeg" alt="Série 13">
+        </a>
+        <p>The Witcher</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=mno678" target="_blank">
+          <img src="../assets/Better Call Saul.jpeg" alt="Série 14">
+        </a>
+        <p>Better Call Saul</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=pqr901" target="_blank">
+          <img src="../assets/Daredevil.jpg" alt="Série 15">
+        </a>
+        <p>Daredevil</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=stu234" target="_blank">
+          <img src="../assets/Hannibal.jpg" alt="Série 16">
+        </a>
+        <p>Hannibal</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=vwx567" target="_blank">
+          <img src="../assets/arrow.jpg" alt="Série 17">
+        </a>
+        <p>Arrow</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=yz0123" target="_blank">
+          <img src="../assets/westworld.jpg" alt="Série 18">
+        </a>
+        <p>Westworld</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=abc456" target="_blank">
+          <img src="../assets/Sherlock.jpg" alt="Série 19">
+        </a>
+        <p>Sherlock</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=ijk789" target="_blank">
+          <img src="../assets/Fargo.jpg" alt="Série 20">
+        </a>
+        <p>Fargo</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=lmn012" target="_blank">
+          <img src="../assets/rue Detective.jpg." alt="Série 21">
+        </a>
+        <p>True Detective</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=opq345" target="_blank">
+          <img src="../assets/Normal People.jpg.jpg.jpg" alt="Série 22">
+        </a>
+        <p>Normal People</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=rst678" target="_blank">
+          <img src="../assets/The Haunting of Hill House.jpg" alt="Série 23">
+        </a>
+        <p>The Haunting of Hill House</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=uvw901" target="_blank">
+          <img src="../assets/Bojack Horseman.jpg" alt="Série 24">
+        </a>
+        <p>Bojack Horseman</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=xyz234" target="_blank">
+          <img src="../assets/Lupin_(série_de_televisão).jpg" alt="Série 25">
+        </a>
+        <p>Lupin</p>
+      </div>
+    </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Inter Movies - Todos os direitos reservados</p>
+    <p>
+      Desenvolvido por <a href="./informações.html">Emanuel, Luiz, Enzo</a>.
+      Para mais informações, visite nossa <a href="#">página de contato</a>.
+    </p>
+  </footer>
+</body>
+
+</html>

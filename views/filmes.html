@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InterMovies - Filmes</title>
+  <link rel="stylesheet" href="../css/filmes.css">
+
+  <script>
+    // Função para simular o login
+    function login() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Lógica de validação simples
+      if (username && password) {
+        // Salva a informação de login no localStorage
+        localStorage.setItem('isLoggedIn', 'true');
+
+        // Fechar o pop-up de login
+        document.querySelector('.login-modal').style.display = 'none';
+
+        // Exibir a seção de filmes
+        document.querySelector('.movie-row').style.display = 'block';
+      } else {
+        alert("Por favor, insira seu nome de usuário e senha.");
+      }
+    }
+
+    // Função para verificar o login
+    window.onload = function () {
+      var isLoggedIn = localStorage.getItem('isLoggedIn'); // Verifica se existe o item no localStorage
+
+      if (isLoggedIn === 'true') {
+        // Se o usuário já estiver logado, mostra a seção de filmes
+        document.querySelector('.movie-row').style.display = 'block';
+      } else {
+        // Se não estiver logado, exibe o pop-up de login
+        document.querySelector('.login-modal').style.display = 'flex';
+      }
+    };
+  </script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="../assets/logo.png" alt="Logo Inter Movies"> <!-- Logo -->
+    <div class = "links">
+      <a href="index.html" >Início</a>
+      <a href="series.html">Séries</a>
+      <a href="filmes.html" >Filmes</a>
+      <a href="login.html" >Login</a>
+      <a href="informações.html">Dúvidas</a> 
+    </div>
+    </div>
+
+<!--    
+  <div class="login-modal">
+    <div class="login-modal-content">
+      <h2>Por favor, faça login para acessar os filmes.</h2>
+      <input type="text" id="username" placeholder="Nome de usuário">
+      <input type="password" id="password" placeholder="Senha">
+      <button onclick="login()">Fazer Login</button>
+    </div>
+  </div> -->
+
+  <!-- Seção de filmes -->
+  <div class="movie-row">
+    <h2>Filmes em alta</h2>
+    <div class="movies">
+      <!-- Filmes existentes -->
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=lztr0VOb-_s" target="_blank">
+          <img src="../assets/coringa.jpg" alt="Filme 1">
+        </a>
+        <p>Coringa</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=fZ_Ohjsn6ZE" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 2">
+        </a>
+        <p>Pelé</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=GS0dFi63Nzg" target="_blank">
+          <img src="../assets/Wonka.jpg" alt="Filme 3">
+        </a>
+        <p>Wonka</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=XEn0rprBsi8" target="_blank">
+          <img src="../assets/Harry.jpg" alt="Filme 4">
+        </a>
+        <p>Harry Potter</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=glsPTx6Va_Y" target="_blank">
+          <img src="../assets/Senhor dos Anéis.jpg" alt="Filme 5">
+        </a>
+        <p>Senhor dos Anéis</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=ur0rw-SaFmU" target="_blank">
+          <img src="../assets/Godzilla X Kong.jpg" alt="Filme 6">
+        </a>
+        <p>Godzilla X Kong</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=DfniTLqKp6g" target="_blank">
+          <img src="../assets/Vingadores Ultimato.jpg" alt="Filme 7">
+        </a>
+        <p>Silvio Santos</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=Ed11d2tbXxg" target="_blank">
+          <img src="../assets/Vingadores Ultimato.jpg" alt="Filme 8">
+        </a>
+        <p>Vingadores: Ultimato</p>
+      </div>
+  
+      <!-- Filmes adicionados -->
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=abc123" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 9">
+        </a>
+        <p>A Origem</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=xyz456" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 10">
+        </a>
+        <p>Interestelar</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=def789" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 11">
+        </a>
+        <p>Matrix</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=ghi012" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 12">
+        </a>
+        <p>Gladiador</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=jkl345" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 13">
+        </a>
+        <p>Titanic</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=mno678" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 14">
+        </a>
+        <p>Jurassic Park</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=pqr901" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 15">
+        </a>
+        <p>Star Wars</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=stu234" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 16">
+        </a>
+        <p>The Dark Knight</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=vwx567" target="_blank">
+          <img src="../assets/O Rei Leão.jpg" alt="Filme 17">
+        </a>
+        <p>O Rei Leão</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=yz0123" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 18">
+        </a>
+        <p>Forrest Gump</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=abc456" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 19">
+        </a>
+        <p>The Shawshank Redemption</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=ijk789" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 20">
+        </a>
+        <p>The Godfather</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=lmn012" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 21">
+        </a>
+        <p>A Procura da Felicidade</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=opq345" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 22">
+        </a>
+        <p>A Lista de Schindler</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=rst678" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 23">
+        </a>
+        <p>Clube da Luta</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=uvw901" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 24">
+        </a>
+        <p>À Espera de um Milagre</p>
+      </div>
+      <div class="movie">
+        <a href="https://www.youtube.com/watch?v=xyz234" target="_blank">
+          <img src="../assets/Pelé.jpg" alt="Filme 25">
+        </a>
+        <p>O Silêncio dos Inocentes</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Inter Movies - Todos os direitos reservados</p>
+    <p>
+      Desenvolvido por <a href="./informações.html">Emanuel, Luiz, Enzo</a>.
+      Para mais informações, visite nossa <a href="#">página de contato</a>.
+    </p>
+  </footer>
+</body>
+
+</html>
