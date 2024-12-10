@@ -29,4 +29,35 @@ function login() {
       // Se não estiver logado, exibe o pop-up de login
       document.querySelector('.login-modal').style.display = 'flex';
     }
-  };
+  }
+
+  // Função para abrir o anúncio
+  function abrirAnuncio() {
+      document.getElementById('anuncio').style.display = 'flex';
+  }
+
+  // Função para fechar o anúncio
+  function fecharAnuncio() {
+      document.getElementById('anuncio').style.display = 'none';
+  }
+
+  // Adicionar evento de clique aos filmes
+  const filmes = document.querySelectorAll('.movie');
+  filmes.forEach(filme => {
+    let assistido = false;
+      filme.addEventListener('click', function() {
+        if (assistido == false){
+          // Exibe o anúncio quando um filme é clicado
+          abrirAnuncio();
+          assistido = true;
+          // Após o anúncio ser fechado, o filme será "aberto" (simulação aqui)
+          const nomeFilme = this.dataset.filme;
+          setTimeout(function() {
+              alert('Você está assistindo: ' + nomeFilme);
+              fecharAnuncio();
+          }, 1000); // Anúncio visível por 1 segundo antes de mostrar o filme
+        }
+      });
+  });
+
+
